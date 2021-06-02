@@ -1,11 +1,11 @@
 whoami1:
-  image: emilevauge/whoami
+  image: traefik/whoami
   labels:
     - traefik.enable=true
-    - traefik.frontend.rule=PathPrefix:/whoami
-    - traefik.backend="test"
+    - traefik.http.routers.router1.rule=PathPrefix("/whoami")
+    - traefik.http.routers.router2.rule=PathPrefix("/whoami2")
 
 whoami2:
-  image: emilevauge/whoami
+  image: traefik/whoami
   labels:
     - traefik.enable=false
